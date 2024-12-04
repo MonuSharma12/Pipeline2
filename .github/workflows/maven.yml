@@ -30,4 +30,34 @@ jobs:
     - name: Build with Maven
       run: mvn clean test
 
+  selenium:
+    runs-on: ubuntu-latest
+
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest  # Using the Selenium Standalone Chrome image
+        options: --shm-size=2g
+        ports:
+          - 4444:4444  # Exposing the Selenium server port
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Adjust to the version you're using
+
+      - name: Install dependencies
+        run: |
+          npm install  # Install dependencies from package.json
+
+      - name: Run Selenium tests
+        run: |
+          npm test  # This will run the "test" script in your package.json, which should run your Selenium tests
+        env:
+          SELENIUM_HOST: "localhost"
+          SELENIUM_PORT: "4444"
+
     
