@@ -195,7 +195,7 @@ public class BrowserTesting
 		Actions act=new Actions(driver);
 		WebElement dropdown=driver.findElement(By.xpath("(//div[@class='MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb'])[1]"));
 //		element.click();
-		System.out.println("click on dropdown arrow");
+//		System.out.println("click on dropdown arrow");
 		//ul[@id=':r14:']
 		//div[contains(@class,'MuiPaper-root MuiPaper-elevation MuiPaper-rounded')]
 		
